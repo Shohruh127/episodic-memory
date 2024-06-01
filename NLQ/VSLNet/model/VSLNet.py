@@ -80,6 +80,29 @@ class VSLNet(nn.Module):
             predictor=configs.predictor,
         )
 
+    def freeze_layers(self, freeze_stat):
+        if freeze_stat == 1:
+            print("Freezing some layers of the VSLNet model!")
+            layers_to_freeze = [
+                self.embedding_net,
+                self.video_affine,
+                self.feature_encoder,
+                self.cq_attention,
+                self.cq_concat,
+                # self.predictor,
+                # self.highlight_layer,
+            ]
+            for layer in layers_to_freeze:
+                for param in layer.parameters():
+                    param.requires_grad = False
+
+# Create an instance of the model
+model = VSLNetModel()
+
+# Freeze layers based on the freeze_stat condition
+freeze_stat = 1  # Example value
+model.freeze_layers(freeze_stat)
+
         # If pretrained transformer, initialize_parameters and load.
         if configs.predictor == "bert":
             # Project back from BERT to dim.
