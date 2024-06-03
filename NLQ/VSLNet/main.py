@@ -105,8 +105,7 @@ def main(configs, parser):
         ).to(device)
 
                 # Iterate over named parameters
-        for name, param in 
-        model.named_parameters():
+        for name, param in model.named_parameters():
             print(f"Parameter Name: {name}")
             print(f"Parameter Shape: {param.shape}")
             print("-" * 30)
