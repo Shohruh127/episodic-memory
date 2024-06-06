@@ -17,7 +17,7 @@ class Conv1D(nn.Module):
     def __init__(self, in_dim, out_dim, kernel_size=1, stride=1, padding=0, bias=True):
         super(Conv1D, self).__init__()
         self.conv1d = nn.Conv1d(
-            in_channels=in_dim,
+            in_channels=1536,
             out_channels=out_dim,
             kernel_size=kernel_size,
             padding=padding,
