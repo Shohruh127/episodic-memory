@@ -134,8 +134,8 @@ def main_vslnet(configs, parser):
                 model.feature_encoder,
                 model.cq_attention,
                 model.cq_concat,
-                # model.predictor,
-                # model.highlight_layer,
+                model.predictor,
+                model.highlight_layer,
             ]
             for layer in layers_to_freeze:
                 for param in layer.parameters():
